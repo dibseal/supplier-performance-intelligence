@@ -1,0 +1,171 @@
+{
+  "seed": 20261011,
+  "history_start": "2024-10-01",
+  "as_of_date": "2026-10-01",
+  "history_months": 24,
+  "validation": {
+    "passed": 18,
+    "failed": 0,
+    "checks": {
+      "vendor_id_unique": true,
+      "category_id_unique": true,
+      "po_id_unique": true,
+      "delivery_id_unique": true,
+      "inspection_id_unique": true,
+      "invoice_id_unique": true,
+      "po_vendor_fk_valid": true,
+      "po_category_fk_valid": true,
+      "delivery_po_fk_valid": true,
+      "inspection_po_fk_valid": true,
+      "invoice_po_fk_valid": true,
+      "contract_vendor_fk_valid": true,
+      "contract_category_fk_valid": true,
+      "positive_order_quantities": true,
+      "nonnegative_delivered_quantities": true,
+      "nonnegative_defect_counts": true,
+      "invoice_totals_nonnegative": true,
+      "no_duplicate_vendor_category_contracts": true
+    }
+  },
+  "scenario_truth_rows": 200,
+  "tables": {
+    "categories": {
+      "rows": 12,
+      "columns": [
+        "category_id",
+        "category_name",
+        "unit_of_measure",
+        "typical_lead_days",
+        "typical_unit_cost_min",
+        "typical_unit_cost_max"
+      ],
+      "files": [
+        "data/raw/categories.csv",
+        "data/raw/categories.parquet"
+      ]
+    },
+    "vendors": {
+      "rows": 200,
+      "columns": [
+        "vendor_id",
+        "vendor_name",
+        "vendor_tier",
+        "region",
+        "onboard_date",
+        "status",
+        "monthly_capacity_units",
+        "payment_terms_days",
+        "certifications",
+        "supplier_profile"
+      ],
+      "files": [
+        "data/raw/vendors.csv",
+        "data/raw/vendors.parquet"
+      ]
+    },
+    "vendor_category_contracts": {
+      "rows": 467,
+      "columns": [
+        "contract_id",
+        "vendor_id",
+        "category_id",
+        "contract_unit_price",
+        "valid_from",
+        "valid_to",
+        "minimum_order_qty",
+        "max_monthly_capacity_units",
+        "certification_required",
+        "is_active"
+      ],
+      "files": [
+        "data/raw/vendor_category_contracts.csv",
+        "data/raw/vendor_category_contracts.parquet"
+      ]
+    },
+    "purchase_orders": {
+      "rows": 30000,
+      "columns": [
+        "po_id",
+        "vendor_id",
+        "category_id",
+        "contract_id",
+        "order_date",
+        "promised_delivery_date",
+        "ordered_qty",
+        "unit_price",
+        "currency",
+        "po_status",
+        "shipping_method"
+      ],
+      "files": [
+        "data/raw/purchase_orders.csv",
+        "data/raw/purchase_orders.parquet"
+      ]
+    },
+    "delivery_logs": {
+      "rows": 36253,
+      "columns": [
+        "delivery_id",
+        "po_id",
+        "delivery_date",
+        "delivered_qty",
+        "delivery_sequence",
+        "delivery_status",
+        "actual_lead_days",
+        "is_late_vs_promised"
+      ],
+      "files": [
+        "data/raw/delivery_logs.csv",
+        "data/raw/delivery_logs.parquet"
+      ]
+    },
+    "quality_inspections": {
+      "rows": 30567,
+      "columns": [
+        "inspection_id",
+        "po_id",
+        "delivery_id",
+        "inspection_date",
+        "inspected_qty",
+        "defective_qty",
+        "accepted_qty",
+        "defect_type"
+      ],
+      "files": [
+        "data/raw/quality_inspections.csv",
+        "data/raw/quality_inspections.parquet"
+      ]
+    },
+    "invoices": {
+      "rows": 30833,
+      "columns": [
+        "invoice_id",
+        "po_id",
+        "invoice_date",
+        "invoiced_qty",
+        "invoice_unit_price",
+        "invoice_total",
+        "currency",
+        "invoice_status"
+      ],
+      "files": [
+        "data/raw/invoices.csv",
+        "data/raw/invoices.parquet"
+      ]
+    },
+    "scenario_truth": {
+      "rows": 200,
+      "columns": [
+        "vendor_id",
+        "scenario_profile",
+        "deterioration_start_date",
+        "scenario_seed",
+        "is_synthetic_ground_truth"
+      ],
+      "files": [
+        "data/synthetic/scenario_truth.csv",
+        "data/synthetic/scenario_truth.parquet"
+      ]
+    }
+  }
+}

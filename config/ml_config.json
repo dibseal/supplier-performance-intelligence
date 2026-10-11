@@ -1,0 +1,16 @@
+{
+  "history_window_days": 180,
+  "prediction_horizon_days": 90,
+  "minimum_training_rows": 100,
+  "minimum_future_evaluable_pos": 5,
+  "minimum_future_inspected_units": 100,
+  "underperformance_thresholds": {
+    "on_time_delivery_rate_below": 0.5,
+    "defect_rate_above": 0.05
+  },
+  "temporal_test_fraction": 0.25,
+  "random_state": 20261011,
+  "n_estimators": 250,
+  "max_depth": 8,
+  "min_samples_leaf": 4
+}

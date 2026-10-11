@@ -1,0 +1,40 @@
+{
+  "weights": {
+    "delivery": 0.35,
+    "quality": 0.30,
+    "cost": 0.20,
+    "lead_time_consistency": 0.15
+  },
+  "risk_thresholds": {
+    "strong_min": 85,
+    "acceptable_min": 70,
+    "at_risk_min": 50
+  },
+  "minimum_samples": {
+    "delivery_evaluable_pos": 5,
+    "quality_inspected_units": 100,
+    "cost_invoiced_pos": 3,
+    "lead_time_observations": 5
+  },
+  "quality": {
+    "target_defect_rate": 0.01,
+    "unacceptable_defect_rate": 0.10
+  },
+  "cost": {
+    "no_penalty_variance_pct": 0.0,
+    "zero_score_variance_pct": 20.0,
+    "savings_score_cap": 100.0
+  },
+  "lead_time_consistency": {
+    "ideal_cv": 0.10,
+    "zero_score_cv": 0.80
+  },
+  "alerts": {
+    "low_delivery_rate": 0.85,
+    "high_defect_rate": 0.03,
+    "high_cost_variance_pct": 3.0,
+    "high_lead_time_cv": 0.50,
+    "recent_delivery_drop": 0.10,
+    "recent_defect_increase": 0.02
+  }
+}

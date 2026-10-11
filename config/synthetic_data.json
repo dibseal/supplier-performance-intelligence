@@ -1,0 +1,24 @@
+{
+  "seed": 20261011,
+  "history_months": 24,
+  "as_of_date": "2026-10-01",
+  "output_dir": "data/raw",
+  "formats": ["csv", "parquet"],
+  "counts": {
+    "vendors": 200,
+    "categories": 12,
+    "purchase_orders": 30000
+  },
+  "behavior": {
+    "split_delivery_probability": 0.22,
+    "second_split_probability": 0.20,
+    "inspection_coverage": 0.84,
+    "invoice_multiple_probability": 0.07,
+    "deteriorating_vendor_fraction": 0.12,
+    "late_vendor_fraction": 0.12,
+    "quality_risk_vendor_fraction": 0.10,
+    "cost_risk_vendor_fraction": 0.10,
+    "inconsistent_vendor_fraction": 0.10,
+    "reliable_vendor_fraction": 0.22
+  }
+}
